@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "styled-components": "^6.1.15"
+  },
+  "devDependencies": {
+    "sass": "^1.84.0"
+  }
+}

@@ -4,8 +4,8 @@ const Carousel = ({ images, visibleSlides = 3 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const maxIndex = images.length;
     const autoplayRef = useRef(null);
-    const transitionDuration = 500;  // Duración de la transición en milisegundos
-    const autoPlayInterval = 3000;   // Intervalo de auto reproducción
+    const transitionDuration = 500;
+    const autoPlayInterval = 3000;
 
     useEffect(() => {
         const startAutoplay = () => {
@@ -26,7 +26,6 @@ const Carousel = ({ images, visibleSlides = 3 }) => {
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => {
             if (prevIndex === maxIndex - 1) {
-                // Reiniciar al principio, sin salto visual
                 return 0;
             }
             return prevIndex + 1;
@@ -36,7 +35,6 @@ const Carousel = ({ images, visibleSlides = 3 }) => {
     const prevSlide = () => {
         setCurrentIndex((prevIndex) => {
             if (prevIndex === 0) {
-                // Ir al final, sin salto visual
                 return maxIndex - 1;
             }
             return prevIndex - 1;
@@ -59,6 +57,8 @@ const Carousel = ({ images, visibleSlides = 3 }) => {
         }
     };
 
+    const angle = 360 / visibleSlides;
+
     const getSlidePosition = () => {
         return (currentIndex * (100 / visibleSlides));
     };
@@ -68,7 +68,7 @@ const Carousel = ({ images, visibleSlides = 3 }) => {
             <div
                 className="flex transition-transform ease-in-out"
                 style={{
-                    transform: `translateX(-${getSlidePosition()}%)`,
+                    transform: `rotateY(${currentIndex * angle}deg) translateZ(250px)`,
                     transitionDuration: `${transitionDuration}ms`,
                 }}
                 onTouchStart={handleTouchStart}
