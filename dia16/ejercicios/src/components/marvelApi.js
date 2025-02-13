@@ -63,7 +63,7 @@ const SearchMarvel = () => {
                 type="text"
                 value={characterName}
                 onChange={(e) => setCharacterName(e.target.value)}
-                placeholder="Ingresa el nombre del personaje"
+                placeholder="Personaje de Marvel"
                 style={{ color: 'black' }}
             />
             <button onClick={handleSearch}>Buscar</button>
