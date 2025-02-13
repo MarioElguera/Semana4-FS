@@ -6,11 +6,10 @@ export default function ApiWeather() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [updateManually, setUpdateManually] = useState(false);
-
-    const API_KEY = 'a4879237038bbbbb4ae33695d042109c';
+    const API_KEY = 'a48792370381XDER23454ae33695d042109c';
 
     useEffect(() => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=es`)
             .then((res) => res.json())
             .then((data) => {
                 setLoading(true);
