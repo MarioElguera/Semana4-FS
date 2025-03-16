@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Slider from '../components/ej1';
 import Carousel from '../components/ej2';
+import Menu from '../components/ej3';
 
 export default function Home() {
   const images = [
@@ -14,8 +15,82 @@ export default function Home() {
     "https://es.onlyfresh.com/cdn/shop/articles/AManova_diarrea_nei_gatti.jpg",
   ];
 
+  const menuItems = [
+    {
+      name: "Inicio",
+      path: "/inicio",
+    },
+    {
+      name: "Servicios",
+      path: "/servicios",
+      submenu: [
+        {
+          name: "Desarrollo Web",
+          path: "/servicios/web",
+          submenu: [
+            { name: "Frontend", path: "/servicios/web/frontend" },
+            { name: "Backend", path: "/servicios/web/backend" }
+          ]
+        },
+        {
+          name: "Marketing Digital",
+          path: "/servicios/marketing",
+          submenu: [
+            { name: "SEO", path: "/servicios/marketing/seo" },
+            { name: "Publicidad", path: "/servicios/marketing/publicidad" }
+          ]
+        }
+      ],
+    },
+    {
+      name: "Productos",
+      path: "/productos",
+      submenu: [
+        {
+          name: "Software",
+          path: "/productos/software",
+          submenu: [
+            { name: "Aplicaciones", path: "/productos/software/apps" },
+            { name: "Sistemas", path: "/productos/software/sistemas" }
+          ]
+        },
+        {
+          name: "Hardware",
+          path: "/productos/hardware",
+          submenu: [
+            { name: "Laptops", path: "/productos/hardware/laptops" },
+            { name: "Periféricos", path: "/productos/hardware/perifericos" }
+          ]
+        }
+      ],
+    },
+    {
+      name: "Contacto",
+      path: "/contacto",
+      submenu: [
+        {
+          name: "Atención al Cliente",
+          path: "/contacto/cliente",
+          submenu: [
+            { name: "Soporte Técnico", path: "/contacto/cliente/soporte" },
+            { name: "Reclamos", path: "/contacto/cliente/reclamos" }
+          ]
+        },
+        {
+          name: "Ubicación",
+          path: "/contacto/ubicacion",
+          submenu: [
+            { name: "Oficinas", path: "/contacto/ubicacion/oficinas" },
+            { name: "Mapa", path: "/contacto/ubicacion/mapa" }
+          ]
+        }
+      ],
+    }
+  ];
+
   return (
     <div>
+      <Menu items={menuItems} />
       <h1>Slider</h1>
       <Slider images={images} autoplay={true} interval={1000} />
       <br></br>

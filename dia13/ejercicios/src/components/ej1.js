@@ -4,7 +4,6 @@ export default function Slider({ images, autoplay = true, interval = 3000 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoplay, setIsAutoplay] = useState(autoplay);
     const touchStartRef = useRef(0);
-    const touchEndRef = useRef(0);
     const isSwipingRef = useRef(false);
     const autoplayRef = useRef(isAutoplay);
 
